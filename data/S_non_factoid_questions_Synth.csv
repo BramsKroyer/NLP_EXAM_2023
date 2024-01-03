@@ -1,0 +1,321 @@
+;Topic;Q_subcat;Query
+0;Fitness and Wellness;comparison;What are the differing views on the impact of AI in fitness and wellness?
+1;Fitness and Wellness;ambiguous;What impact may AI have on fitness and wellness?
+2;Fitness and Wellness;positive;How can AI positively influence fitness and wellness?
+3;Fitness and Wellness;negative;How can AI negatively influence fitness and wellness?
+4;Precision Agriculture;comparison;What are the differing views on the impact of AI in precision agriculture?
+5;Precision Agriculture;ambiguous;What impact may AI have on precision agriculture?
+6;Precision Agriculture;positive;How can AI positively influence precision agriculture?
+7;Precision Agriculture;negative;How can AI negatively influence precision agriculture?
+8;Biotechnology;comparison;What are the differing views on the integration of AI in biotechnology?
+9;Biotechnology;ambiguous;What impact may AI have on biotechnology?
+10;Biotechnology;positive;How can AI positively influence the field of biotechnology?
+11;Biotechnology;negative;How can AI negatively influence the field of biotechnology?
+12;Oncology;comparison;What are the differing views on the impact of AI in oncology?
+13;Oncology;ambiguous;What impact may AI have on oncology?
+14;Oncology;positive;How can AI positively influence oncology?
+15;Oncology;negative;How can AI negatively influence oncology?
+16;Virology;comparison;What are the differing views on the impact of AI in virology?
+17;Virology;ambiguous;What impact may AI have on virology?
+18;Virology;positive;How can AI positively influence virology?
+19;Virology;negative;How can AI negatively influence virology?
+20;Microbiology;comparison;What are the differing perspectives on the application of AI in microbiology research?
+21;Microbiology;ambiguous;What impact may AI have on microbiology?
+22;Microbiology;positive;How can AI positively influence the field of microbiology?
+23;Microbiology;negative;How can AI negatively influence the field of microbiology?
+24;Mechanical Engineering;comparison;What are the differing views on the impact of AI in mechanical engineering?
+25;Mechanical Engineering;ambiguous;What impact may AI have on mechanical engineering?
+26;Mechanical Engineering;positive;How can AI positively influence mechanical engineering?
+27;Mechanical Engineering;negative;How can AI negatively influence mechanical engineering?
+28;Chemical Engineering;comparison;What are the differing views on the impact of AI in chemical engineering?
+29;Chemical Engineering;ambiguous;What impact may AI have on chemical engineering?
+30;Chemical Engineering;positive;How can AI positively influence chemical engineering?
+31;Chemical Engineering;negative;How can AI negatively influence  chemical engineering?
+32;Demography;comparison;What are the differing views on the impact of AI in demography?
+33;Demography;ambiguous;What impact may AI have on demography?
+34;Demography;positive;How can AI positively influence demography?
+35;Demography;negative;How can AI negatively influence demography?
+36;Digital Marketing;comparison;What are the differing views on the impact of AI in digital marketing?
+37;Digital Marketing;ambiguous;What impact may AI have on digital marketing?
+38;Digital Marketing;positive;How can AI positively influence digital marketing?
+39;Digital Marketing;negative;How can AI negatively influence digital marketing?
+40;Mining;comparison;What are the differing views on the use of AI in mining operations?
+41;Mining;ambiguous;What impact may AI have on mining?
+42;Mining;positive;How can AI positively influence the field of mining?
+43;Mining;negative;How can AI negatively influence the field of mining?
+44;Sociology;comparison;What are the differing views on the impact of AI in sociology?
+45;Sociology;ambiguous;What impact may AI have on sociology?
+46;Sociology;positive;How can AI positively influence sociology?
+47;Sociology;negative;How can AI negatively influence sociology?
+48;Entomology;comparison;What are the differing views on the impact of AI in entomology?
+49;Entomology;ambiguous;What impact may AI have on entomology?
+50;Entomology;positive;How can AI positively influence entomology?
+51;Entomology;negative;How can AI negatively influence entomology?
+52;Epidemiology;comparison;What are the differing views on the impact of AI in epidemiology?
+53;Epidemiology;ambiguous;What impact may AI have on epidemiology?
+54;Epidemiology;positive;How can AI positively influence epidemiology?
+55;Epidemiology;negative;How can AI negatively influence epidemiology?
+56;Cyber-Physical Systems;comparison;What are the differing views on the impact of AI in cyber-physical systems?
+57;Cyber-Physical Systems;ambiguous;What impact may AI have on cyber-physical systems?
+58;Cyber-Physical Systems;positive;How can AI positively influence cyber-physical systems?
+59;Cyber-Physical Systems;negative;How can AI negatively influence cyber-physical systems?
+60;Behavioral Economics;comparison;What are the differing views on the use of AI in behavioral economics?
+61;Behavioral Economics;ambiguous;What impact may AI have on behavioral economics?
+62;Behavioral Economics;positive;How can AI positively influence the field of behavioral economics?
+63;Behavioral Economics;negative;How can AI negatively influence the field of behavioral economics?
+64;Immunology;comparison;What are the differing views on the impact of AI in immunology?
+65;Immunology;ambiguous;What impact may AI have on immunology?
+66;Immunology;positive;How can AI positively influence immunology?
+67;Immunology;negative;How can AI negatively influence immunology?
+68;Geomatics;comparison;What are the differing views on the impact of AI in geomatics?
+69;Geomatics;ambiguous;What impact may AI have on geomatics?
+70;Geomatics;positive;How can AI positively influence the field of geomatics?
+71;Geomatics;negative;How can AI negatively influence the field of geomatics?
+72;Food;comparison;What are the differing views on the impact of AI in food?
+73;Food;ambiguous;What impact may AI have on food?
+74;Food;positive;How can AI positively influence food?
+75;Food;negative;How can AI negatively influence food?
+76;Cardiology;comparison;What are the differing views on the impact of AI in cardiology?
+77;Cardiology;ambiguous;What impact may AI have on cardiology?
+78;Cardiology;positive;How can AI positively influence cardiology?
+79;Cardiology;negative;How can AI negatively influence cardiology?
+80;Nutrition;comparison;What are the differing views on the impact of AI in nutrition?
+81;Nutrition;ambiguous;What impact may AI have on nutrition?
+82;Nutrition;positive;How can AI positively influence nutrition?
+83;Nutrition;negative;How can AI negatively influence nutrition?
+84;Aerospace Engineering;comparison;What are the differing views on the impact of AI in aerospace engineering?
+85;Aerospace Engineering;ambiguous;What impact may AI have on aerospace engineering?
+86;Aerospace Engineering;positive;How can AI positively influence aerospace engineering?
+87;Aerospace Engineering;negative;How can AI negatively influence aerospace engineering?
+88;Law;comparison;What are the differing opinions on the impact of AI in legal practice?
+89;Law;ambiguous;What impact may AI have on law?
+90;Law;positive;How can AI positively influence the field of law?
+91;Law;negative;How can AI negatively influence the field of law?
+92;Political Science;comparison;What are the differing views on the impact of AI in political science?
+93;Political Science;ambiguous;What impact may AI have on political science?
+94;Political Science;positive;How can AI positively influence political science?
+95;Political Science;negative;How can AI negatively influence political science?
+96;Finance;comparison;What are the differing views on the impact of AI in finance?
+97;Finance;ambiguous;What impact may AI have on finance?
+98;Finance;positive;How can AI positively influence finance?
+99;Finance;negative;How can AI negatively influence finance?
+100;Urban Planning;comparison;What are the differing views on the impact of AI in urban planning?
+101;Urban Planning;ambiguous;What impact may AI have on urban planning?
+102;Urban Planning;positive;How can AI positively influence urban planning?
+103;Urban Planning;negative;How can AI negatively influence urban planning?
+104;Dermatology;comparison;What are the differing views on the impact of AI in dermatology?
+105;Dermatology;ambiguous;What impact may AI have on dermatology?
+106;Dermatology;positive;How can AI positively influence dermatology?
+107;Dermatology;negative;How can AI negatively influence dermatology?
+108;Nuclear Engineering;comparison;What are the differing views on the impact of AI in nuclear engineering?
+109;Nuclear Engineering;ambiguous;What impact may AI have on nuclear engineering?
+110;Nuclear Engineering;positive;How can AI positively influence the field of nuclear engineering?
+111;Nuclear Engineering;negative;How can AI negatively influence the field of nuclear engineering?
+112;Logistics;comparison;What are the differing views on the role of AI in optimizing logistics and supply chains?
+113;Logistics;ambiguous;What impact may AI have on logistics and supply chains?
+114;Logistics;positive;How can AI positively influence the field of logistics and supply chains?
+115;Logistics;negative;How can AI negatively influence the field of logistics and supply chains?
+116;Psychology;comparison;What are the differing views on the impact of AI in psychology?
+117;Psychology;ambiguous;What impact may AI have on psychology?
+118;Psychology;positive;How can AI positively influence psychology?
+119;Psychology;negative;How can AI negatively influence psychology?
+120;Geography;comparison;What are the differing views on the impact of AI in geography?
+121;Geography;ambiguous;What impact may AI have on geography?
+122;Geography;positive;How can AI positively influence geography?
+123;Geography;negative;How can AI negatively influence geography?
+124;Public Health;comparison;What are the differing views on the impact of AI in public health?
+125;Public Health;ambiguous;What impact may AI have on public health?
+126;Public Health;positive;How can AI positively influence public health?
+127;Public Health;negative;How can AI negatively influence public health?
+128;Forestry;comparison;What are the differing views on the impact of AI in forestry?
+129;Forestry;ambiguous;What impact may AI have on forestry?
+130;Forestry;positive;How can AI positively influence forestry?
+131;Forestry;negative;How can AI negatively influence forestry?
+132;Travel and Tourism;comparison;What are the differing views on the impact of AI in travel and tourism?
+133;Travel and Tourism;ambiguous;What impact may AI have on travel and tourism?
+134;Travel and Tourism;positive;How can AI positively influence travel and tourism?
+135;Travel and Tourism;negative;How can AI negatively influence travel and tourism?
+136;Petroleum Engineering;comparison;What are the differing views on the impact of AI in petroleum engineering?
+137;Petroleum Engineering;ambiguous;What impact may AI have on petroleum engineering?
+138;Petroleum Engineering;positive;How can AI positively influence petroleum engineering?
+139;Petroleum Engineering;negative;How can AI negatively influence petroleum engineering?
+140;Agriculture;comparison;What are the differing views on the impact of AI in agriculture?
+141;Agriculture;ambiguous;What impact may AI have on agriculture?
+142;Agriculture;positive;How can AI positively influence agriculture?
+143;Agriculture;negative;How can AI negatively influence agriculture?
+144;Gerontology;comparison;What are the differing views on the impact of AI in gerontology?
+145;Gerontology;ambiguous;What impact may AI have on gerontology?
+146;Gerontology;positive;How can AI positively influence gerontology?
+147;Gerontology;negative;How can AI negatively influence gerontology?
+148;Anthropology;comparison;What are the differing views on the impact of AI in anthropology?
+149;Anthropology;ambiguous;What impact may AI have on anthropology?
+150;Anthropology;positive;How can AI positively influence anthropology?
+151;Anthropology;negative;How can AI negatively influence anthropology?
+152;Seismology;comparison;What are the differing views on the impact of AI in seismology?
+153;Seismology;ambiguous;What impact may AI have on seismology?
+154;Seismology;positive;How can AI positively influence seismology?
+155;Seismology;negative;How can AI negatively influence seismology?
+156;Oncology;comparison;What are the differing views on the impact of AI in oncology?
+157;Oncology;ambiguous;What impact may AI have on oncology?
+158;Oncology;positive;How can AI positively influence oncology?
+159;Oncology;negative;How can AI negatively influence oncology?
+160;Genetic Engineering;comparison;What are the differing views on the impact of AI in genetic engineering?
+161;Genetic Engineering;ambiguous;What impact may AI have on genetic engineering?
+162;Genetic Engineering;positive;How can AI positively influence genetic engineering?
+163;Genetic Engineering;negative;How can AI negatively influence genetic engineering?
+164;Customer Service;comparison;What are the differing views on the impact of AI in customer service?
+165;Customer Service;ambiguous;What impact may AI have on customer service?
+166;Customer Service;positive;How can AI positively influence customer service?
+167;Customer Service;negative;How can AI negatively influence customer service?
+168;Structural Biology;comparison;What are the differing views on the impact of AI in structural biology?
+169;Structural Biology;ambiguous;What impact may AI have on structural biology?
+170;Structural Biology;positive;How can AI positively influence structural biology?
+171;Structural Biology;negative;How can AI negatively influence structural biology?
+172;Telecommunications;comparison;What are the differing views on the impact of AI in telecommunications?
+173;Telecommunications;ambiguous;What impact may AI have on telecommunications?
+174;Telecommunications;positive;How can AI positively influence telecommunications?
+175;Telecommunications;negative;How can AI negatively influence telecommunications?
+176;Economics;comparison;What are the differing views on the impact of AI in economics?
+177;Economics;ambiguous;What impact may AI have on economics?
+178;Economics;positive;How can AI positively influence economics?
+179;Economics;negative;How can AI negatively influence economics?
+180;Electrical Engineering;comparison;What are the differing views on the impact of AI in electrical engineering?
+181;Electrical Engineering;ambiguous;What impact may AI have on electrical engineering?
+182;Electrical Engineering;positive;How can AI positively influence electrical engineering?
+183;Electrical Engineering;negative;How can AI negatively influence electrical engineering?
+184;Endocrinology;comparison;What are the differing views on the impact of AI in endocrinology?
+185;Endocrinology;ambiguous;What impact may AI have on endocrinology?
+186;Endocrinology;positive;How can AI positively influence endocrinology?
+187;Endocrinology;negative;How can AI negatively influence endocrinology?
+188;Autonomous Vehicles;comparison;What are the differing views on the impact of AI in autonomous vehicles?
+189;Autonomous Vehicles;ambiguous;What impact may AI have on autonomous vehicles?
+190;Autonomous Vehicles;positive;How can AI positively influence autonomous vehicles?
+191;Autonomous Vehicles;negative;How can AI negatively influence autonomous vehicles?
+192;Civil Engineering;comparison;What are the differing views on the impact of AI in civil engineering?
+193;Civil Engineering;ambiguous;What impact may AI have on civil engineering?
+194;Civil Engineering;positive;How can AI positively influence civil engineering?
+195;Civil Engineering;negative;How can AI negatively influence civil engineering?
+196;Language Translation;comparison;What are the differing views on the impact of AI in language translation?
+197;Language Translation;ambiguous;What impact may AI have on language translation?
+198;Language Translation;positive;How can AI positively influence language translation?
+199;Language Translation;negative;How can AI negatively influence language translation?
+200;Mycology;comparison;What are the differing views on the impact of AI in mycology?
+201;Mycology;ambiguous;What impact may AI have on mycology?
+202;Mycology;positive;How can AI positively influence mycology?
+203;Mycology;negative;How can AI negatively influence mycology?
+204;Mental Health;comparison;What are the differing views on the impact of AI in mental health?
+205;Mental Health;ambiguous;What impact may AI have on mental health?
+206;Mental Health;positive;How can AI positively influence mental health?
+207;Mental Health;negative;How can AI negatively influence mental health?
+208;Climatology;comparison;What are the differing views on the impact of AI in climatology?
+209;Climatology;ambiguous;What impact may AI have on climatology?
+210;Climatology;positive;How can AI positively influence climatology?
+211;Climatology;negative;How can AI negatively influence climatology?
+212;Cultural Studies;comparison;What are the differing views on the impact of AI in cultural studies?
+213;Cultural Studies;ambiguous;What impact may AI have on cultural studies?
+214;Cultural Studies;positive;How can AI positively influence cultural studies?
+215;Cultural Studies;negative;How can AI negatively influence cultural studies?
+216;Fashion;comparison;What are the differing views on the impact of AI in fashion?
+217;Fashion;ambiguous;What impact may AI have on fashion?
+218;Fashion;positive;How can AI positively influence fashion?
+219;Fashion;negative;How can AI negatively influence fashion?
+220;Philosophy;comparison;What are the differing views on the impact of AI in philosophy?
+221;Philosophy;ambiguous;What impact may AI have on philosophy?
+222;Philosophy;positive;How can AI positively influence philosophy?
+223;Philosophy;negative;How can AI negatively influence philosophy?
+224;Linguistics;comparison;What are the differing views on the impact of AI in linguistics?
+225;Linguistics;ambiguous;What impact may AI have on linguistics?
+226;Linguistics;positive;How can AI positively influence linguistics?
+227;Linguistics;negative;How can AI negatively influence linguistics?
+228;Healthcare;comparison;What are the differing views on the impact of AI in healthcare?
+229;Healthcare;ambiguous;What impact may AI have on healthcare?
+230;Healthcare;positive;How can AI positively influence healthcare?
+231;Healthcare;negative;How can AI negatively influence healthcare?
+232;Wildlife Conservation;comparison;What are the differing views on the impact of AI in wildlife conservation?
+233;Wildlife Conservation;ambiguous;What impact may AI have on wildlife conservation?
+234;Wildlife Conservation;positive;How can AI positively influence wildlife conservation?
+235;Wildlife Conservation;negative;How can AI negatively influence wildlife conservation?
+236;Volcanology;comparison;What are the differing views on the impact of AI in volcanology?
+237;Volcanology;ambiguous;What impact may AI have on volcanology?
+238;Volcanology;positive;How can AI positively influence volcanology?
+239;Volcanology;negative;How can AI negatively influence volcanology?
+240;Music;comparison;What are the differing views on the impact of AI in music?
+241;Music;ambiguous;What impact may AI have on music?
+242;Music;positive;How can AI positively influence music?
+243;Music;negative;How can AI negatively influence music?
+244;International Relations;comparison;What are the differing views on the impact of AI in international relations?
+245;International Relations;ambiguous;What impact may AI have on international relations?
+246;International Relations;positive;How can AI positively influence international relations?
+247;International Relations;negative;How can AI negatively influence international relations?
+248;Smart Cities;comparison;What are the differing views on the impact of AI in smart cities?
+249;Smart Cities;ambiguous;What impact may AI have on smart cities?
+250;Smart Cities;positive;How can AI positively influence smart cities?
+251;Smart Cities;negative;How can AI negatively influence smart cities?
+252;Supply Chain Management;comparison;What are the differing views on the impact of AI in supply chain management?
+253;Supply Chain Management;ambiguous;What impact may AI have on supply chain management?
+254;Supply Chain Management;positive;How can AI positively influence supply chain management?
+255;Supply Chain Management;negative;How can AI negatively influence supply chain management?
+256;Retail;comparison;What are the differing views on the impact of AI in retail?
+257;Retail;ambiguous;What impact may AI have on retail?
+258;Retail;positive;How can AI positively influence retail?
+259;Retail;negative;How can AI negatively influence retail?
+260;Cryptography;comparison;What are the differing views on the impact of AI in cryptography?
+261;Cryptography;ambiguous;What impact may AI have on cryptography?
+262;Cryptography;positive;How can AI positively influence cryptography?
+263;Cryptography;negative;How can AI negatively influence cryptography?
+264;Society;comparison;What are the differing views on the impact of AI in society?
+265;Society;ambiguous;What impact may AI have on society?
+266;Society;positive;How can AI positively influence society?
+267;Society;negative;How can AI negatively influence society?
+268;Nanotechnology;comparison;What are the differing views on the impact of AI in nanotechnology?
+269;Nanotechnology;ambiguous;What impact may AI have on nanotechnology?
+270;Nanotechnology;positive;How can AI positively influence nanotechnology?
+271;Nanotechnology;negative;How can AI negatively influence nanotechnology?
+272;Virtual Reality;comparison;What are the differing views on the impact of AI in virtual reality?
+273;Virtual Reality;ambiguous;What impact may AI have on virtual reality?
+274;Virtual Reality;positive;How can AI positively influence virtual reality?
+275;Virtual Reality;negative;How can AI negatively influence virtual reality?
+276;Neurology;comparison;What are the differing views on the impact of AI in neurology?
+277;Neurology;ambiguous;What impact may AI have on neurology?
+278;Neurology;positive;How can AI positively influence neurology?
+279;Neurology;negative;How can AI negatively influence neurology?
+280;E-commerce;comparison;What are the differing views on the impact of AI in e-commerce?
+281;E-commerce;ambiguous;What impact may AI have on e-commerce?
+282;E-commerce;positive;How can AI positively influence e-commerce?
+283;E-commerce;negative;How can AI negatively influence e-commerce?
+284;Pharmacology;comparison;What are the differing views on the impact of AI in pharmacology?
+285;Pharmacology;ambiguous;What impact may AI have on pharmacology?
+286;Pharmacology;positive;How can AI positively influence pharmacology?
+287;Pharmacology;negative;How can AI negatively influence pharmacology?
+288;Gaming;comparison;What are the differing views on the impact of AI in gaming?
+289;Gaming;ambiguous;What impact may AI have on gaming?
+290;Gaming;positive;How can AI positively influence gaming?
+291;Gaming;negative;How can AI negatively influence gaming?
+292;Human-Computer Interaction;comparison;What are the differing views on the impact of AI in human-computer interaction?
+293;Human-Computer Interaction;ambiguous;What impact may AI have on human-computer interaction?
+294;Human-Computer Interaction;positive;How can AI positively influence human-computer interaction?
+295;Human-Computer Interaction;negative;How can AI negatively influence human-computer interaction?
+296;Climate Change;comparison;What are the differing views on the impact of AI in addressing climate change?
+297;Climate Change;ambiguous;What impact may AI have on addressing climate change?
+298;Climate Change;positive;How can AI positively influence efforts to combat climate change?
+299;Climate Change;negative;How can AI negatively influence efforts to combat climate change?
+300;Human Resources;comparison;What are the differing views on the impact of AI in human resources?
+301;Human Resources;ambiguous;What impact may AI have on human resources?
+302;Human Resources;positive;How can AI positively influence human resources?
+303;Human Resources;negative;How can AI negatively influence human resources?
+304;Quantum Computing;comparison;What are the differing views on the impact of AI in quantum computing?
+305;Quantum Computing;ambiguous;What impact may AI have on quantum computing?
+306;Quantum Computing;positive;How can AI positively influence quantum computing?
+307;Quantum Computing;negative;How can AI negatively influence quantum computing?
+308;Hospitality;comparison;What are the differing views on the impact of AI in hospitality?
+309;Hospitality;ambiguous;What impact may AI have on hospitality?
+310;Hospitality;positive;How can AI positively influence hospitality?
+311;Hospitality;negative;How can AI negatively influence hospitality?
+312;Hydrology;comparison;What are the differing views on the impact of AI in hydrology?
+313;Hydrology;ambiguous;What impact may AI have on hydrology?
+314;Hydrology;positive;How can AI positively influence hydrology?
+315;Hydrology;negative;How can AI negatively influence hydrology?
+316;Robotics;comparison;What are the differing views on the impact of AI in robotics?
+317;Robotics;ambiguous;What impact may AI have on robotics?
+318;Robotics;positive;How can AI positively influence robotics?
+319;Robotics;negative;How can AI negatively influence robotics?

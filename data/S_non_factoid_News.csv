@@ -1,0 +1,70 @@
+Q_subcat,Q_category,topical,query
+ambiguous,S_non_factoid,College and new technologies,How might AI influence traditional manufacturing across various industries?
+positive,S_non_factoid,College and new technologies,How might AI positively influence traditional manufacturing across various industries?
+negative,S_non_factoid,College and new technologies,How might AI negatively influence traditional manufacturing across various industries?
+ambiguous,S_non_factoid,Medical diagnostics,What impact might AI have on medical diagnostics and healthcare?
+positive,S_non_factoid,Medical diagnostics,How might AI positively influence medical diagnostics and healthcare?
+negative,S_non_factoid,Medical diagnostics,How might AI negatively influence medical diagnostics and healthcare?
+ambiguous,S_non_factoid,Data models and bio systems,How might AI impact automated systems?
+positive,S_non_factoid,Data models and bio systems,How might AI positively impact automated systems?
+negative,S_non_factoid,Data models and bio systems,How might AI negatively impact automated systems?
+ambiguous,S_non_factoid,Data Science and Computing,How might AI influence use of predictive algorithms?
+positive,S_non_factoid,Data Science and Computing,How might AI positively influence use of predictive algorithms?
+negative,S_non_factoid,Data Science and Computing,How might AI negatively influence use of predictive algorithms?
+ambiguous,S_non_factoid,Engineering,What impact might AI have on engineering disciplines?
+positive,S_non_factoid,Engineering,How might AI positively influence engineering disciplines?
+negative,S_non_factoid,Engineering,How might AI negatively influence engineering disciplines?
+ambiguous,S_non_factoid,Imaging and data science,What impact might AI have on imaging techniques?
+positive,S_non_factoid,Imaging and data science,How might AI positively influence imaging techniques?
+negative,S_non_factoid,Imaging and data science,How might AI negatively influence imaging techniques?
+ambiguous,S_non_factoid,Language models,How might AI influence communication?
+positive,S_non_factoid,Language models,How might AI positively influence communication?
+negative,S_non_factoid,Language models,How might AI negatively influence communication?
+ambiguous,S_non_factoid,Medical technology,What impact might AI have on medical treatment?
+positive,S_non_factoid,Medical technology,How might AI positively influence medical treatment?
+negative,S_non_factoid,Medical technology,How might AI negatively influence medical treatment?
+ambiguous,S_non_factoid,Modeling and data systems,How might AI influence data systems and modeling?
+positive,S_non_factoid,Modeling and data systems,How might AI positively influence data systems and modeling?
+negative,S_non_factoid,Modeling and data systems,How might AI negatively influence data systems and modeling?
+ambiguous,S_non_factoid,New learning systems,How might AI influence personal communication and writing?
+positive,S_non_factoid,New learning systems,How might AI positively influence personal communication and writing?
+negative,S_non_factoid,New learning systems,How might AI negatively influence personal communication and writing?
+ambiguous,S_non_factoid,Political analysis,What impact might AI have on political analysis?
+positive,S_non_factoid,Political analysis,How might AI positively influence political analysis?
+negative,S_non_factoid,Political analysis,How might AI negatively influence political analysis?
+ambiguous,S_non_factoid,Robotics,How might AI influence robotics?
+positive,S_non_factoid,Robotics,How might AI positively influence robotics?
+negative,S_non_factoid,Robotics,How might AI negatively influence robotics?
+ambiguous,S_non_factoid,Scientific research,What impact might AI have on scientific research?
+positive,S_non_factoid,Scientific research,How might AI positively influence scientific research?
+negative,S_non_factoid,Scientific research,How might AI negatively influence scientific research?
+ambiguous,S_non_factoid,Gen-ai and systems networks,How might AI influence content creation and society?
+positive,S_non_factoid,Gen-ai and systems networks,How might AI positively influence content creation and society?
+negative,S_non_factoid,Gen-ai and systems networks,How might AI negatively influence content creation and society?
+ambiguous,S_non_factoid,Systems and algorithms,What impact might AI have on fairness?
+positive,S_non_factoid,Systems and algorithms,How might AI positively influence fairness?
+negative,S_non_factoid,Systems and algorithms,How might AI negatively influence fairness?
+ambiguous,S_non_factoid,Financial,How might AI influence the financial sector?
+positive,S_non_factoid,Financial,How might AI positively influence the financial sector?
+negative,S_non_factoid,Financial,How might AI negatively influence the financial sector?
+ambiguous,S_non_factoid,Technology and people,What impact might AI have on policymaking?
+positive,S_non_factoid,Technology and people,How might AI positively influence policymaking?
+negative,S_non_factoid,Technology and people,How might AI negatively influence policymaking?
+ambiguous,S_non_factoid,Technology and worker science,How might AI influence education and workforce training?
+positive,S_non_factoid,Technology and worker science,How might AI positively influence education and workforce training?
+negative,S_non_factoid,Technology and worker science,How might AI negatively influence education and workforce training?
+ambiguous,S_non_factoid,Education and content generation,What impact might AI have on education?
+positive,S_non_factoid,Education and content generation,How might AI positively influence education?
+negative,S_non_factoid,Education and content generation,How might AI negatively influence education?
+ambiguous,S_non_factoid,Climate and sustainability,How might AI impact climate and sustainability?
+positive,S_non_factoid,Climate and sustainability,How might AI positively impact climate and sustainability?
+negative,S_non_factoid,Climate and sustainability,How might AI negatively impact climate and sustainability?
+ambiguous,S_non_factoid,Drug research,How might AI impact drug research?
+positive,S_non_factoid,Drug research,How might AI positively impact drug research?
+negative,S_non_factoid,Drug research,How might AI negatively impact drug research?
+ambiguous,S_non_factoid,Neuroscience,How might AI impact neuroscience?
+positive,S_non_factoid,Neuroscience,How might AI positively impact neuroscience?
+negative,S_non_factoid,Neuroscience,How might AI negatively impact neuroscience?
+ambiguous,S_non_factoid,Materials,How might AI impact material science?
+positive,S_non_factoid,Materials,How might AI positively impact material science?
+negative,S_non_factoid,Materials,How might AI negatively impact material science?
