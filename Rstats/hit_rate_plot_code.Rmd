@@ -1,0 +1,39 @@
+---
+title: "Untitled"
+output: html_document
+date: "2024-01-03"
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+```
+
+# Hit Rate plot code
+```{r}
+library(ggplot2)
+
+# The data
+RAG_corr <- c(13.3, 76.7)
+LLM_corr <- c(20.0, 6.7)
+
+data <- data.frame(
+  Model = factor(rep(c("RAG", "LLM"), each = 2),levels = c("RAG", "LLM")),
+  Task = factor(rep(c("GF-Q&A", "SF-Q&A"), 2), levels = c("GF-Q&A", "SF-Q&A")),
+  HitRate = c(RAG_corr, LLM_corr)
+)
+# Create the bar plot
+ggplot(data, aes(x = Task, y = HitRate, fill = Model)) +
+  geom_bar(stat = "identity", position = position_dodge(),alpha = 0.5) +
+  labs(title = "Correctness: LLM and RAG comparison on factoid questions",
+       x = "Task",
+       y = "Hit Rate (%)") +
+   geom_text(aes(label = sprintf("%.1f%%", HitRate)), 
+            position = position_dodge(width = 0.9), 
+            vjust = -0.3, 
+            size = 3.5) + 
+  scale_y_continuous(limits = c(0, 100)) +
+  scale_fill_brewer(palette = "Set2") +
+  theme_minimal() +
+  theme(plot.title = element_text(face = "bold"))
+```
+

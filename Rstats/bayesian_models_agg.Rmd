@@ -1,0 +1,584 @@
+---
+title: "bayes_2"
+output: html_document
+date: "2023-12-31"
+editor_options: 
+  chunk_output_type: console
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+```
+
+
+```{r}
+library(pacman)
+pacman::p_load(lme4,
+               lmerTest,
+               tidyverse,
+               brms,
+               ggplot2)
+```
+
+# - The News dataset
+```{r}
+# Read in
+full_aug <-  read_csv("full_aug/answers_S_non_factoid_w_absa.csv") %>% rename(node_number = variable, Topic = topical)
+
+colnames(full_aug)
+
+# Setting ambiguous question as the base level
+full_aug$Q_subcat <- fct_relevel(full_aug$Q_subcat, "ambiguous")
+
+# Preprocessing (adding a very small number to scores that may be 0, subtracting a very small number to scores that may be 1)
+## POS
+full_aug$AI_POS <- ifelse(full_aug$AI_POS == 0,
+                          .Machine$double.eps, # a very small positive number
+                          full_aug$AI_POS)
+
+full_aug$AI_POS <- ifelse(full_aug$AI_POS == 1,
+                          1 - .Machine$double.eps, # a very small number subtracted from 1
+                          full_aug$AI_POS)
+
+
+## NEG
+full_aug$AI_NEG <- ifelse(full_aug$AI_NEG == 0,
+                          .Machine$double.eps, # a very small positive number
+                          full_aug$AI_NEG)
+
+full_aug$AI_NEG <- ifelse(full_aug$AI_NEG == 1,
+                          1 - .Machine$double.eps, # a very small number subtracted from 1
+                          full_aug$AI_NEG)
+
+
+## NEU
+full_aug$AI_NEU <- ifelse(full_aug$AI_NEU == 0,
+                          .Machine$double.eps, # a very small positive number
+                          full_aug$AI_NEU)
+
+full_aug$AI_NEU <- ifelse(full_aug$AI_NEU == 1,
+                          1 - .Machine$double.eps, # a very small number subtracted from 1
+                          full_aug$AI_NEU)
+
+# Trying with aggreagate data
+full_aug_agg <- full_aug %>%
+  group_by(Topic, Q_subcat) %>%  # Grouping by both Topic and Q_subcat
+  summarise(
+    AI_NEG_avg = mean(AI_NEG, na.rm = TRUE),
+    AI_POS_avg = mean(AI_POS, na.rm = TRUE),
+    AI_NEU_avg = mean(AI_NEU, na.rm = TRUE)
+  ) %>%
+  ungroup()
+```
+
+### Outliers
+```{r}
+# Find and remove outliers
+boxplot(full_aug$AI_POS, main = "Boxplot", ylab = "Values")
+boxplot(full_aug$AI_NEG, main = "Boxplot", ylab = "Values")
+boxplot(full_aug$AI_NEU, main = "Boxplot", ylab = "Values")
+
+# Calculate z-scores 
+z_scores <- scale(full_aug$AI_POS)
+hist(z_scores)
+
+```
+
+## POS
+```{r}
+
+# Non-informative priors
+priors_agg <- c(
+  # Setting the intercept on the log odds of the mean value (0.4177)
+  prior(normal(-0.3322, 1), class = "Intercept"), # Intercept
+  prior(gamma(1,1), class = "phi"), # Precision parameter (0.01 is less informative than 2)
+  prior(normal(0, 1), class = "b"), # Coefficients
+  prior(normal(0, 1), class = "sd") # Standard deviation for group-level effects
+)
+
+# Prior predictive check
+model_pos_prior <- brm(
+  bf(AI_POS_avg ~ Q_subcat + (1|Topic),
+      family = Beta),
+  data = full_aug_agg,
+  prior = priors_agg,
+  chains = 2,
+  iter = 4000,
+  sample_prior = "only"
+  
+)
+
+pp_check(model_pos_prior)
+
+# Fit the model
+model_pos_agg <- brm(
+  bf(AI_POS_avg ~ Q_subcat + (1|Topic),
+      family = Beta),
+  data = full_aug_agg,
+  prior = priors_agg,
+  chains = 2,
+  iter = 3000,
+  control = list(adapt_delta = 0.95)
+)
+
+summary(model_pos_agg)
+pp_check(model_pos_agg)
+
+# Hypothesis testing
+hypothesis(model_pos_agg, "0 < Q_subcatpositive")
+hypothesis(model_pos_agg, "0 > Q_subcatpositive")
+hypothesis(model_pos_agg, "0 < Q_subcatnegative")
+hypothesis(model_pos_agg, "0 > Q_subcatnegative")
+hypothesis(model_pos_agg, "Q_subcatnegative < Q_subcatpositive")
+```
+
+```{r}
+# Back-transform
+logit_to_probability <- function(logit_value) {
+  probability <- 1 / (1 + exp(-logit_value))
+  return(probability)
+}
+
+logit_value <- -0.25 
+probability <- logit_to_probability(logit_value)
+print(probability)
+
+logit_value <- 0.83
+probability <- logit_to_probability(logit_value)
+print(probability)
+
+logit_value <- -1.08
+probability <- logit_to_probability(logit_value)
+print(probability)
+
+```
+
+## NEG
+```{r}
+
+# Non-informative priors
+priors_agg_neg <- c(
+  # Setting the intercept on the log odds of the mean value (0.284008)
+  prior(normal(-0.92467, 1), class = "Intercept"), # Intercept
+  prior(gamma(1,1), class = "phi"), # Precision parameter (0.01 is less informative than 2)
+  prior(normal(0, 1), class = "b"), # Coefficients
+  prior(normal(0, 1), class = "sd") # Standard deviation for group-level effects
+)
+
+# Prior predictive check
+model_neg_prior <- brm(
+  bf(AI_NEG_avg ~ Q_subcat + (1|Topic),
+      family = Beta),
+  data = full_aug_agg,
+  prior = priors_agg_neg,
+  chains = 2,
+  iter = 4000,
+  sample_prior = "only"
+  
+)
+
+pp_check(model_neg_prior)
+
+# Fit the model
+model_neg_agg <- brm(
+  bf(AI_NEG_avg ~ Q_subcat + (1|Topic),
+      family = Beta),
+  data = full_aug_agg,
+  prior = priors_agg_neg,
+  chains = 2,
+  iter = 3000,
+  control = list(adapt_delta = 0.95)
+)
+
+summary(model_neg_agg)
+pp_check(model_neg_agg)
+
+# Hypothesis testing
+hypothesis(model_neg_agg, "0 < Q_subcatpositive") 
+hypothesis(model_neg_agg, "0 < Q_subcatnegative") 
+hypothesis(model_neg_agg, "0 > Q_subcatnegative") 
+hypothesis(model_neg_agg, "Q_subcatpositive < Q_subcatnegative") 
+```
+
+```{r}
+# Back-transform
+logit_to_probability <- function(logit_value) {
+  probability <- 1 / (1 + exp(-logit_value))
+  return(probability)
+}
+
+logit_value <- 0.3
+probability <- logit_to_probability(logit_value)
+print(probability)
+
+logit_value <- -1.13
+probability <- logit_to_probability(logit_value)
+print(probability)
+
+logit_value <- -1.43
+probability <- logit_to_probability(logit_value)
+print(probability)
+```
+
+## NEU
+```{r}
+# Non-informative priors
+priors_agg_neu <- c(
+  # Setting the intercept on the log odds of the mean value (0.1881805)
+  prior(normal(-1.46188, 1), class = "Intercept"), # Intercept
+  prior(gamma(2,2), class = "phi"), # Precision parameter (0.01 is less informative than 2)
+  prior(normal(0, 1), class = "b"), # Coefficients
+  prior(normal(0, 1), class = "sd") # Standard deviation for group-level effects
+)
+
+# Prior predictive check
+model_neu_prior <- brm(
+  bf(AI_NEU_avg ~ Q_subcat + (1|Topic),
+      family = Beta),
+  data = full_aug_agg,
+  prior = priors_agg_neu,
+  chains = 2,
+  iter = 4000,
+  sample_prior = "only"
+  
+)
+
+pp_check(model_neu_prior)
+
+# Fit the model
+model_neu_agg <- brm(
+  bf(AI_NEU_avg ~ Q_subcat + (1|Topic),
+      family = Beta),
+  data = full_aug_agg,
+  prior = priors_agg_neu,
+  chains = 2,
+  iter = 3000,
+  control = list(adapt_delta = 0.95)
+)
+
+summary(model_neu_agg)
+pp_check(model_neu_agg)
+```
+
+```{r}
+# Hypothesis testing
+hypothesis(model_neu_agg, "0 > Q_subcatpositive") 
+hypothesis(model_neu_agg, "0 > Q_subcatnegative") 
+hypothesis(model_neu_agg, "Q_subcatpositive < Q_subcatnegative")
+hypothesis(model_neu_agg, "Q_subcatpositive > Q_subcatnegative")
+hypothesis(model_neu_agg, "Q_subcatpositive = Q_subcatnegative")
+
+```
+
+```{r}
+# Back-transform
+logit_to_probability <- function(logit_value) {
+  probability <- 1 / (1 + exp(-logit_value))
+  return(probability)
+}
+
+logit_value <- 0.04
+probability <- logit_to_probability(logit_value)
+print(probability)
+
+logit_value <- 0.36
+probability <- logit_to_probability(logit_value)
+print(probability)
+
+logit_value <- 0.32
+probability <- logit_to_probability(logit_value)
+print(probability)
+
+```
+
+# SIMULATED
+# - The simulated dataset
+```{r}
+simu = read_csv("simulated/answers_simu_long_merged_nodes_with_absa.csv")
+colnames(simu)
+
+simu_q = read.csv("simulated/S_non_factoid_questions_for_simu.csv", sep =";")
+colnames(simu_q)
+
+simu$Query <- trimws(tolower(simu$Query))
+simu_q$Query <- trimws(tolower(simu_q$Query))
+
+simu <- merge(simu, simu_q, by = "Query", all.x = TRUE) %>% select(Topic,
+                                                                          Q_subcat.x,
+                                                                          Query,
+                                                                          LLMRAG_response,
+                                                                          node_number,
+                                                                          node_content,
+                                                                          node_id_from_nodes, 
+                                                                          metadata_from_nodes,
+                                                                          article_body_from_nodes,
+                                                                          AI_POS,
+                                                                          AI_NEG,
+                                                                          AI_NEU,
+                                                                          AI_label) %>% rename(Q_subcat = Q_subcat.x)
+
+simu <- unique(simu)
+
+# Take out comparison
+simu_base <- simu %>% filter(Q_subcat != 'comparison')
+
+# Setting ambiguous question as the base level
+simu_base$Q_subcat <- fct_relevel(simu_base$Q_subcat, "ambiguous")
+
+# Preprocessing (adding a very small number to scores that may be 0, subtracting a very small number to scores that may be 1)
+## POS
+simu_base$AI_POS <- ifelse(simu_base$AI_POS == 0,
+                          .Machine$double.eps, # a very small positive number
+                          simu_base$AI_POS)
+
+simu_base$AI_POS <- ifelse(simu_base$AI_POS == 1,
+                          1 - .Machine$double.eps, # a very small number subtracted from 1
+                          simu_base$AI_POS)
+
+
+## NEG
+simu_base$AI_NEG <- ifelse(simu_base$AI_NEG == 0,
+                          .Machine$double.eps, # a very small positive number
+                          simu_base$AI_NEG)
+
+simu_base$AI_NEG <- ifelse(simu_base$AI_NEG == 1,
+                          1 - .Machine$double.eps, # a very small number subtracted from 1
+                          simu_base$AI_NEG)
+
+
+## NEU
+simu_base$AI_NEU <- ifelse(simu_base$AI_NEU == 0,
+                          .Machine$double.eps, # a very small positive number
+                          simu_base$AI_NEU)
+
+simu_base$AI_NEU <- ifelse(simu_base$AI_NEU == 1,
+                          1 - .Machine$double.eps, # a very small number subtracted from 1
+                          simu_base$AI_NEU)
+
+
+
+# Trying with aggreagate data
+simu_agg <- simu_base %>%
+  group_by(Topic, Q_subcat) %>%  # Grouping by both Topic and Q_subcat
+  summarise(
+    AI_NEG_avg = mean(AI_NEG, na.rm = TRUE),
+    AI_POS_avg = mean(AI_POS, na.rm = TRUE),
+    AI_NEU_avg = mean(AI_NEU, na.rm = TRUE)
+  ) %>%
+  ungroup()
+
+```
+
+## POS
+```{r}
+
+# Non-informative priors
+priors_agg_pos_simu <- c(
+  # Setting the intercept on the log odds of the mean value (0.5294734)
+  prior(normal(0.11803, 1), class = "Intercept"), # Intercept
+  prior(gamma(1,1), class = "phi"), # Precision parameter (0.01 is less informative than 2)
+  prior(normal(0, 1), class = "b"), # Coefficients
+  prior(normal(0, 1), class = "sd") # Standard deviation for group-level effects
+)
+
+# Prior predictive check
+model_pos_prior <- brm(
+  bf(AI_POS_avg ~ Q_subcat + (1|Topic),
+      family = Beta),
+  data = simu_agg,
+  prior = priors_agg_pos_simu,
+  chains = 2,
+  iter = 4000,
+  sample_prior = "only"
+  
+)
+
+pp_check(model_pos_prior)
+
+# Fit the model
+model_pos_agg_simu <- brm(
+  bf(AI_POS_avg ~ Q_subcat + (1|Topic),
+      family = Beta),
+  data = simu_agg,
+  prior = priors_agg_pos_simu,
+  chains = 2,
+  iter = 3000,
+  control = list(adapt_delta = 0.95)
+)
+
+summary(model_pos_agg_simu)
+pp_check(model_pos_agg_simu)
+
+# Hypothesis testing
+hypothesis(model_pos_agg_simu, "0 < Q_subcatpositive") 
+hypothesis(model_pos_agg_simu, "0 < Q_subcatnegative") 
+hypothesis(model_pos_agg_simu, "0 > Q_subcatnegative") 
+hypothesis(model_pos_agg_simu, "Q_subcatnegative < Q_subcatpositive") 
+```
+
+```{r}
+# Back-transform
+logit_to_probability <- function(logit_value) {
+  probability <- 1 / (1 + exp(-logit_value))
+  return(probability)
+}
+
+logit_value <- -1.55
+probability <- logit_to_probability(logit_value)
+print(probability)
+
+logit_value <- 0.6
+probability <- logit_to_probability(logit_value)
+print(probability)
+
+logit_value <- -2.15
+probability <- logit_to_probability(logit_value)
+print(probability)
+
+```
+
+## NEG
+```{r}
+
+# Non-informative priors
+priors_agg_neg_simu <- c(
+  # Setting the intercept on the log odds of the mean value (0.3153768)
+  prior(normal(-0.77510, 1), class = "Intercept"), # Intercept
+  prior(gamma(1,1), class = "phi"), # Precision parameter (0.01 is less informative than 2)
+  prior(normal(0, 1), class = "b"), # Coefficients
+  prior(normal(0, 1), class = "sd") # Standard deviation for group-level effects
+)
+
+# Prior predictive check
+model_neg_prior <- brm(
+  bf(AI_NEG_avg ~ Q_subcat + (1|Topic),
+      family = Beta),
+  data = simu_agg,
+  prior = priors_agg_neg_simu,
+  chains = 2,
+  iter = 4000,
+  sample_prior = "only"
+  
+)
+
+pp_check(model_neg_prior)
+
+# Fit the model
+model_neg_agg_simu <- brm(
+  bf(AI_NEG_avg ~ Q_subcat + (1|Topic),
+      family = Beta),
+  data = simu_agg,
+  prior = priors_agg_neg_simu,
+  chains = 2,
+  iter = 3000,
+  control = list(adapt_delta = 0.95)
+)
+
+summary(model_neg_agg_simu)
+pp_check(model_neg_agg_simu)
+
+# Hypothesis testing
+hypothesis(model_neg_agg_simu, "0 < Q_subcatpositive") 
+hypothesis(model_neg_agg_simu, "0 < Q_subcatnegative") 
+hypothesis(model_neg_agg_simu, "0 > Q_subcatnegative") 
+hypothesis(model_neg_agg_simu, "Q_subcatpositive < Q_subcatnegative") 
+```
+
+```{r}
+# Back-transform
+logit_to_probability <- function(logit_value) {
+  probability <- 1 / (1 + exp(-logit_value))
+  return(probability)
+}
+
+logit_value <- 1.68
+probability <- logit_to_probability(logit_value)
+print(probability)
+
+logit_value <- -0.53
+probability <- logit_to_probability(logit_value)
+print(probability)
+
+logit_value <- -2.21
+probability <- logit_to_probability(logit_value)
+print(probability)
+
+```
+
+## NEU
+```{r}
+
+# Non-informative priors
+priors_agg_neu_simu <- c(
+  # Setting the intercept on the log odds of the mean value (0.1551497)
+  prior(normal(-1.69477, 1), class = "Intercept"), # Intercept
+  prior(gamma(1,1), class = "phi"), # Precision parameter (0.01 is less informative than 2)
+  prior(normal(0, 1), class = "b"), # Coefficients
+  prior(normal(0, 1), class = "sd") # Standard deviation for group-level effects
+)
+
+# Prior predictive check
+model_neu_prior <- brm(
+  bf(AI_NEU_avg ~ Q_subcat + (1|Topic),
+      family = Beta),
+  data = simu_agg,
+  prior = priors_agg_neu_simu,
+  chains = 2,
+  iter = 3000,
+  sample_prior = "only"
+  
+)
+
+pp_check(model_neu_prior)
+
+# Fit the model
+model_neu_agg_simu <- brm(
+  bf(AI_NEU_avg ~ Q_subcat + (1|Topic),
+      family = Beta),
+  data = simu_agg,
+  prior = priors_agg_neu_simu,
+  chains = 2,
+  iter = 3000,
+  control = list(adapt_delta = 0.95)
+)
+
+summary(model_neu_agg_simu)
+pp_check(model_neu_agg_simu)
+
+# Hypothesis testing
+hypothesis(model_neu_agg_simu, "0 > Q_subcatpositive") 
+hypothesis(model_neu_agg_simu, "0 > Q_subcatnegative") 
+hypothesis(model_neu_agg_simu, "Q_subcatpositive < Q_subcatnegative") 
+hypothesis(model_neu_agg_simu, "Q_subcatpositive > Q_subcatnegative") 
+
+```
+
+# Residual plots
+```{r}
+# Checked for all models, code here for example: 
+
+# - Check homogeneity of variance
+# Extract fitted values
+fitted_vals <- fitted(model_neu_agg_simu)
+
+# Extract residuals
+residuals_vals <- residuals(model_neu_agg_simu)
+
+# Basic residual plot
+plot(fitted_vals, residuals_vals, 
+     xlab = "Fitted Values", ylab = "Residuals", 
+     main = "Residuals vs Fitted")
+abline(h = 0, col = "red")  # Add a horizontal line at 0
+
+```
+
+# Trace plots
+```{r}
+library(bayesplot)
+# Get samples
+post_samples <- as.mcmc(model_neu_agg_simu)
+
+# Traceplot
+mcmc_trace(post_samples)
+
+```
